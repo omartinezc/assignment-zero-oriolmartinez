@@ -9,11 +9,11 @@ public class MainaderiaList implements Mainaderia {
     private List contingut;
     
     public MainaderiaList() {
-        // crear la llista. Inicialment serà buida, clar...
+        // crear la llista. Inicialment serÃ  buida, clar...
         this.contingut = new ArrayList();
     }
  
-   // afegeix una criatura. Excepció si ja hi ha una criatura igual
+   // afegeix una criatura. ExcepciÃ³ si ja hi ha una criatura igual
     public void matricular (Criatura c) throws IllegalArgumentException {
         if (this.contingut.contains(c))
             throw new IllegalArgumentException("matricular: criatura repetida");
@@ -33,7 +33,7 @@ public class MainaderiaList implements Mainaderia {
         }
     }
     
-    // Retorna la criatura que té el nom especificat. Retorna null si no
+    // Retorna la criatura que tÃ© el nom especificat. Retorna null si no
     // n'hi ha cap
     public Criatura buscar(String nom) {
         Criatura target = new Criatura(nom, Criatura.MIN_EDAT, Criatura.NEN);
@@ -46,31 +46,29 @@ public class MainaderiaList implements Mainaderia {
         }
     }
     
-    // retorna el número de criatures matriculades
+    // retorna el nÃºmero de criatures matriculades
     public int numCriatures() {
         return contingut.size();
     }
     
-    // retorna el número de criatures del sexe especificat com a paràmetre
+    // retorna el nÃºmero de criatures del sexe especificat com a parÃ metre
     public int quantsSexe (int sexe) {
-        
-    	//TODO 1
-        /* Exercici: a la versió mostrada a classe de la implementació
-           d'aquest mètode, la iteració sobre el contingut no es feia
-           utilitzant l'iterador de la col·lecció.
-           Torneu a escriure el codi d'aquest mètode però ara fent ús 
-           de l'iterador proporcionat pel mètode iterator.
-         
-           Després, podeu executar ProvaMainaderia per veure si el resultat
-           que obteniu és el mateix que s'obtenia abans */
-    	return -1;
+    
+    	int cnt = 0;
+    	for (Object o: contingut) {
+			Criatura c = (Criatura)o;
+			if(c.getSexe() == sexe)
+				cnt++;
+		}
+    	
+    	return cnt;
     }
     
-    // retorna la i-èssima criatura. Excepció si el paràmetre està fora
-    // dels límits actuals
+    // retorna la i-Ã¨ssima criatura. ExcepciÃ³ si el parÃ metre estÃ  fora
+    // dels lÃ­mits actuals
     public Criatura get(int i) throws IndexOutOfBoundsException {
         return (Criatura)contingut.get(i);
-        // NOTA: get ja llença IndexOutOfBoundsException si el paràmetre està
+        // NOTA: get ja llenÃ§a IndexOutOfBoundsException si el parÃ metre estÃ 
         // fora de limits
     }
 
